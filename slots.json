@@ -1,0 +1,266 @@
+{
+    "S1": [
+        {
+            "day": "Monday",
+            "start": 13.75,
+            "end": 14.75
+        },
+        {
+            "day": "Tuesday",
+            "start": 8.75,
+            "end": 9.75
+        },
+        {
+            "day": "Wednesday",
+            "start": 10.75,
+            "end": 11.75
+        },
+        {
+            "day": "Saturday",
+            "start": 8.75,
+            "end": 9.5
+        }
+    ],
+    "S2": [
+        {
+            "day": "Wednesday",
+            "start": 8.75,
+            "end": 9.75
+        },
+        {
+            "day": "Thursday",
+            "start": 10.75,
+            "end": 11.75
+        },
+        {
+            "day": "Friday",
+            "start": 13.75,
+            "end": 14.75
+        },
+        {
+            "day": "Saturday",
+            "start": 9.5,
+            "end": 10.25
+        }
+    ],
+    "S3": [
+        {
+            "day": "Wednesday",
+            "start": 13.75,
+            "end": 14.75
+        },
+        {
+            "day": "Thursday",
+            "start": 8.75,
+            "end": 9.75
+        },
+        {
+            "day": "Friday",
+            "start": 9.75,
+            "end": 10.75
+        },
+        {
+            "day": "Saturday",
+            "start": 10.25,
+            "end": 11.0
+        }
+    ],
+    "S4": [
+        {
+            "day": "Tuesday",
+            "start": 10.75,
+            "end": 11.75
+        },
+        {
+            "day": "Thursday",
+            "start": 13.75,
+            "end": 14.75
+        },
+        {
+            "day": "Friday",
+            "start": 8.75,
+            "end": 9.75
+        },
+        {
+            "day": "Saturday",
+            "start": 11.0,
+            "end": 11.75
+        }
+    ],
+    "S5": [
+        {
+            "day": "Monday",
+            "start": 11.75,
+            "end": 12.75
+        },
+        {
+            "day": "Tuesday",
+            "start": 9.75,
+            "end": 10.75
+        },
+        {
+            "day": "Thursday",
+            "start": 14.75,
+            "end": 15.75
+        },
+        {
+            "day": "Saturday",
+            "start": 11.75,
+            "end": 12.5
+        }
+    ],
+    "S6": [
+        {
+            "day": "Monday",
+            "start": 8.75,
+            "end": 9.75
+        },
+        {
+            "day": "Tuesday",
+            "start": 11.75,
+            "end": 12.75
+        },
+        {
+            "day": "Wednesday",
+            "start": 9.75,
+            "end": 10.75
+        },
+        {
+            "day": "Saturday",
+            "start": 15.0,
+            "end": 15.75
+        }
+    ],
+    "S7": [
+        {
+            "day": "Wednesday",
+            "start": 11.75,
+            "end": 12.75
+        },
+        {
+            "day": "Thursday",
+            "start": 9.75,
+            "end": 10.75
+        },
+        {
+            "day": "Friday",
+            "start": 10.75,
+            "end": 11.75
+        },
+        {
+            "day": "Saturday",
+            "start": 16.75,
+            "end": 17.5
+        }
+    ],
+    "S8": [
+        {
+            "day": "Monday",
+            "start": 9.75,
+            "end": 10.75
+        },
+        {
+            "day": "Wednesday",
+            "start": 14.75,
+            "end": 15.75
+        },
+        {
+            "day": "Thursday",
+            "start": 11.75,
+            "end": 12.75
+        },
+        {
+            "day": "Saturday",
+            "start": 13.5,
+            "end": 14.25
+        }
+    ],
+    "S9": [
+        {
+            "day": "Monday",
+            "start": 10.75,
+            "end": 11.75
+        },
+        {
+            "day": "Tuesday",
+            "start": 13.75,
+            "end": 14.75
+        },
+        {
+            "day": "Friday",
+            "start": 11.75,
+            "end": 12.75
+        },
+        {
+            "day": "Saturday",
+            "start": 14.25,
+            "end": 15.0
+        }
+    ],
+    "F1": [
+        {
+            "day": "Tuesday",
+            "start": 11.75,
+            "end": 13.75
+        },
+        {
+            "day": "Thursday",
+            "start": 11.75,
+            "end": 12.75
+        }
+    ],
+    "F2": [
+        {
+            "day": "Monday",
+            "start": 15.75,
+            "end": 17.75
+        },
+        {
+            "day": "Tuesday",
+            "start": 16.75,
+            "end": 17.75
+        }
+    ],
+    "SM1": [
+        {
+            "day": "Tuesday",
+            "start": 16.75,
+            "end": 17.75
+        }
+    ],
+    "SM2": [
+        {
+            "day": "Thursday",
+            "start": 16.75,
+            "end": 17.75
+        }
+    ],
+    "V1": [
+        {
+            "day": "Wednesday",
+            "start": 14.75,
+            "end": 15.75
+        }
+    ],
+    "L1": [
+        {
+            "day": "Monday",
+            "start": 8.75,
+            "end": 10.75
+        }
+    ],
+    "L4": [
+        {
+            "day": "Thursday",
+            "start": 8.75,
+            "end": 10.75
+        }
+    ],
+    "L7": [
+        {
+            "day": "Thursday",
+            "start": 10.75,
+            "end": 12.75
+        }
+    ]
+}
