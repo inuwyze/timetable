@@ -5,12 +5,12 @@ a hobby project 😉
 
 # future improvements
 
--[ ] pwa support
--[ ]mobile support
--[ ]auto timetable generation
--[ ]user customizability
--[ ]routine sharing
--[ ]assignment/task planning
+- [ ] pwa support
+- [ ]mobile support
+- [ ]auto timetable generation
+- [ ]user customizability
+- [ ]routine sharing
+- [ ]assignment/task planning
  
 
 
