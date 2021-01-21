@@ -249,6 +249,20 @@
             "end": 10.75
         }
     ],
+    "L2": [
+        {
+            "day": "Tuesday",
+            "start": 8.75,
+            "end": 10.75
+        }
+    ],
+    "L3": [
+        {
+            "day": "Wednesday",
+            "start": 8.75,
+            "end": 10.75
+        }
+    ],
     "L4": [
         {
             "day": "Thursday",
@@ -256,11 +270,67 @@
             "end": 10.75
         }
     ],
+    "L5": [
+        {
+            "day": "Tuesday",
+            "start": 10.75,
+            "end": 12.75
+        }
+    ],
+    "L6": [
+        {
+            "day": "Monday",
+            "start": 10.75,
+            "end": 12.75
+        }
+    ],
     "L7": [
         {
             "day": "Thursday",
             "start": 10.75,
             "end": 12.75
+        }
+    ],
+    "L8": [
+        {
+            "day": "Wednesday",
+            "start": 10.75,
+            "end": 12.75
+        }
+    ],
+    "L9": [
+        {
+            "day": "Monday",
+            "start": 13.75,
+            "end": 15.75
+        }
+    ],
+    "L10": [
+        {
+            "day": "Friday",
+            "start": 10.75,
+            "end": 12.75
+        }
+    ],
+    "L11": [
+        {
+            "day": "Wednesday",
+            "start": 13.75,
+            "end": 15.75
+        }
+    ],
+    "L12": [
+        {
+            "day": "Thursday",
+            "start": 13.75,
+            "end": 15.75
+        }
+    ],
+    "L14": [
+        {
+            "day": "Friday",
+            "start": 8.75,
+            "end": 10.75
         }
     ]
 }

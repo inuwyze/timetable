@@ -28,9 +28,10 @@
       </div>
     </div>
     <!-- {{courses}} -->
-    {{screenHeight}}
-    <button @click='getwidth'></button>
-    <div id='slotForm'>
+    <!-- {{screenHeight}} -->
+    <!-- <button @click='getwidth'></button> -->
+    <slotInput/>
+    <!-- <div id='slotForm'>
       slotForm
       <div>S1<input type="text" v-model="courses['S1']"></div>
       <div>S2<input type="text" v-model="courses['S2']"></div>
@@ -49,17 +50,19 @@
       <div>L1<input type="text" v-model="courses['L1']"></div>
       <div>L4<input type="text" v-model="courses['L4']"></div>
       <div>L7<input type="text" v-model="courses['L7']"></div>
-    </div>
+    </div> -->
 
     
   </div>
 </template>
 
 <script>
-
+import slotInput from './components/slotInput'
 import slts from '../slots.json'
 export default {
   name: 'App',
+  components: { slotInput }
+  ,
   data () {
     return {
       slotSel:'',
