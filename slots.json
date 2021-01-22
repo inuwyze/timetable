@@ -221,6 +221,23 @@
             "end": 17.75
         }
     ],
+    "F3": [
+        {
+            "day": "Wednesday",
+            "start": 7.75,
+            "end": 8.75
+        },
+        {
+            "day": "Thursday",
+            "start": 7.75,
+            "end": 8.75
+        },
+        {
+            "day": "Friday",
+            "start": 7.75,
+            "end": 8.75
+        }
+    ],
     "SM1": [
         {
             "day": "Tuesday",
