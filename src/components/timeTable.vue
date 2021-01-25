@@ -2,8 +2,7 @@
   <div>
       <div id='timetable' ref="timetable">
       <div v-for="(x,i) in times" :key="i" class="periods"
-      :style="{left:left(x.start-7.75),right:right(x.end-7.75),top:top(x.day)}"
-      >
+      :style="{left:left(x.start-7.75),right:right(x.end-7.75),top:top(x.day)}">
         {{x.start|timeConvert}} - {{x.end|timeConvert}}
       </div>
       <div v-for="(course,slot) in courses" :key="slot">  
@@ -18,7 +17,7 @@
         </div>
         <div v-if="slotSel==slot">
           {{event.start|timeConvert}}-{{event.end|timeConvert}}
-        </div>
+      </div>
       </div> 
       </div>  
       </div>
@@ -75,5 +74,12 @@ export default {
     align-items: center;
     justify-content: center;
     /* font-size: 12px; */
+}
+#timetable{
+  height: 70vh;
+  width: 91vw;
+  position: relative;
+  background: #557174;
+   /* transform: rotate(-90deg); */
 }
 </style>

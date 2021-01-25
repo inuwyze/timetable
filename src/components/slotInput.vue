@@ -1,16 +1,29 @@
 <template>
 <div class="container">
 
-  <div class="container ">
-    <!-- {{sltss}} -->
+    <!-- <div class=" ">
+    {{sltss}}
     <div v-for="(s,slt) in sltss" :key="slt" class="inp">
       {{slt}} course:<input type="text" @input="inputHandler(slt,'name',$event.target.value.trim())">
       teacher:<input type="text" @input="inputHandler(slt,'faculty',$event.target.value)">
       <span v-for='(i,x) in s' :key='x'>  </span>
-      <!-- [{{i.day|abbv}}{{i.start|timeConvert}}{{i.end|timeConvert}}] -->
-    </div>
-  </div>
+      [{{i.day|abbv}}{{i.start|timeConvert}}{{i.end|timeConvert}}]
+      </div>
+    </div> -->
+    <modal v-model="show">
+      slot*,course name,faculty**
+    <textarea :class="validate"
+    name="" id="" cols="30" rows="10" v-model="textarea"></textarea>
+    
+    *case sensitive
+    **optional
+    </modal>
+    <button 
+    class="addCourses"
+    @click="show=true">show</button>
+    <div v-html="textarea"></div>
     {{myCourses}}
+    <!-- {{Object.keys(sltss)}} -->
 </div>
 </template>
 
@@ -19,8 +32,33 @@ import slts from '../../slots.json'
 import {mapState} from 'vuex'
 
 export default {
+  data () {
+    return {
+      show:false,
+      sltss:slts,
+      validate:'',
+      textarea:''
+    }
+  },
   computed: {
     ...mapState({myCourses:'myCourses'})
+  },
+  watch: {
+    textarea(v){
+      let c=v.split('\n').filter(x=>x!='')
+      let s=[]
+      let vd=c.every(x=>{s.push(x.split('-')[0]);return x.split('-').length>1  && x.split('-').every(y=>y) && Object.keys(this.sltss).includes(x.split('-')[0]) ;})
+      console.log(s)
+      console.log(vd)
+      let Sltdup=new Set(s).size == s.length
+       
+      
+      this.validate=vd && Sltdup ?'ok':'error'
+      if(vd){
+        let that=this;
+      c.forEach(function(x){that.inputHandler(x.split('-')[0],x.split('-')[1],x.split('-')[2]?x.split('-')[2]:'')})
+      }
+    }
   },
   filters: {
     abbv(v){
@@ -28,22 +66,19 @@ export default {
     },
      
   },
-  data () {
-    return {
-      sltss:slts,
-    }
-  },
+  
   methods: {
-    inputHandler(s,f,v){
+    inputHandler(s,n,f){
       
-      console.log(v)
-      console.log(this.$store.state.myCourses[s])
+      console.log(s,f,n)
+      // console.log(this.$store.state.myCourses[s])
       
-      console.log(s)
-      console.log(this.$store.state.myCourses)
+      // console.log(s)
+      // console.log(this.$store.state.myCourses)
       if(!this.$store.state.myCourses[s])
         this.$set(this.$store.state.myCourses, s, {name:'',faculty:''})
-      this.$store.state.myCourses[s][f]=v
+      this.$store.state.myCourses[s]['name']=n
+      this.$store.state.myCourses[s]['faculty']=f
       if(this.$store.state.myCourses[s].name=='' && this.$store.state.myCourses[s].faculty=='')
         delete this.$store.state.myCourses[s];
     }
@@ -52,8 +87,18 @@ export default {
 </script>
 
 <style>
+.addCourses{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
 .container{
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: center; */
+  align-items: center;
 }
 .grid{
   display: grid ;

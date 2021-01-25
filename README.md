@@ -3,7 +3,7 @@ a hobby project 😉
 
 #vuejs #python  #frontend
 
-# future improvements
+## features/future improvements
 
 - [ ] pwa support
 - [ ] mobile support

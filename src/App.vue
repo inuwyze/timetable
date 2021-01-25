@@ -2,13 +2,17 @@
   <div id="app" >
 
     <timeTable/>
-    <select v-model='sel'>
-      <option value="s">ok brdfdfdfdfdfdfo</option>
-    </select>
-    <slotInput />
+    
+    <slotInput v-show="true"/>
+    
     <courseCard />
-
-
+    <!-- <searchSelect /> -->
+    
+    <modal v-model="show">
+      ola
+    </modal>
+    <div @click="show=true">click me</div>
+    {{show}}
     
   </div>
 </template>
@@ -17,6 +21,7 @@
 import slotInput from './components/slotInput'
 import timeTable from './components/timeTable'
 import courseCard from './components/courseCard'
+// import searchSelect from './components/searchSelect'
 // import slts from '../slots.json'
 
 export default {
@@ -25,17 +30,25 @@ export default {
   ,
   data () {
     return {
-    sel:''
+    
+    show:true
+    
     }
   },
-  
-  
-
 
 }
 </script>
 
 <style>
+.error,.error:focus{
+  outline: none !important;
+  border-color: red;
+}
+.ok:focus{
+  outline: none !important;
+  border: 2px solid green;
+  
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,13 +61,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-#timetable{
-  height: 70vh;
-  width: 91vw;
-  position: relative;
-  background: #557174;
-   /* transform: rotate(90deg); */
-}
+
 .event{
   position: absolute;
   height:10vh;
