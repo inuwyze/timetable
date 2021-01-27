@@ -1,3 +1,6 @@
+
 module.exports = {
-    publicPath: '/timetable/'
+    publicPath: process.env.NODE_ENV === 'production'
+      ? '/timetable/'
+      : '/'
   }
