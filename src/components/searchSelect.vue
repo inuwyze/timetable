@@ -11,6 +11,7 @@
             <div v-for="(opt,i) in filteredOptions" :key="i" :class="{focus:i==eArr}" @mousedown="searchFilter=opt">{{opt}}</div>
         </div>
         <!-- {{searchFilter}} -->
+        
         {{eArr}}
   </div>
 </template>

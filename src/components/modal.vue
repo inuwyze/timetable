@@ -1,8 +1,8 @@
 <template>
-     <div class="modal-mask" @click='closeCard' v-if="show">
-          <div class="modal-container" @click.stop>
+     <div class="modal-mask" @click='closeCard' v-show="show">
+          <div class="modal-container" @click.stop :class="{'rotate':rotate}">
             <slot></slot>
-            {{show}}
+            
           </div>
       </div>
 </template>
@@ -11,7 +11,16 @@
 
 export default {
     name:'modal',
-    props: ['value'],
+    props: {
+        value:{
+        type:Boolean,
+        required:true
+        },
+        rotate: {
+        type: Boolean,
+        default: false
+        },
+    },
    computed: {
      show(){
          return this.value
@@ -30,21 +39,9 @@ export default {
 </script>
 
 <style>
-.chead2{
-  margin: 5px;
-}
-.g span{
-  justify-self: start;
-}
-.g{
-  display: grid;
-  width: 50%;
-  grid-template-columns:  50% 25% 25%;
-  
-}
 .modal-mask {
     position: fixed;
-    z-index: 9998;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
@@ -58,9 +55,12 @@ export default {
 .modal-container{
     background: white;
     padding:25px;
-    width: 50vw;
+    /* min-height: 100px; */
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.rotate{
+    transform: rotate(-90deg);
 }
 </style>

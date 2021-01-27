@@ -3,16 +3,12 @@
 
     <timeTable/>
     
-    <slotInput v-show="true"/>
+    <slotInput />
     
     <courseCard />
     <!-- <searchSelect /> -->
     
-    <modal v-model="show">
-      ola
-    </modal>
-    <div @click="show=true">click me</div>
-    {{show}}
+    
     
   </div>
 </template>
@@ -31,8 +27,6 @@ export default {
   data () {
     return {
     
-    show:true
-    
     }
   },
 
@@ -40,6 +34,43 @@ export default {
 </script>
 
 <style>
+
+@media (orientation: portrait) {
+  body{
+    margin: 0;
+  }
+  #app{
+  /* display: flex; */
+  /* flex-direction: column; */
+  height: 100vh;
+  width: 100vw;
+}
+  #timetable{
+  height: 100vw;
+  width: 100vh;
+  position: relative;
+  background: #557174;
+   transform: rotate(-90deg);
+   
+}
+.periods{
+  height:12vw !important;
+}
+.event{
+  height: 14.28vw  !important;
+  /* transform: scale(0.8) !important; */
+}
+/* .courseCard{
+  transform: rotate(-90deg);
+} */
+/* .addCourses{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  transform: rotate(-90deg);
+} */
+
+}
 .error,.error:focus{
   outline: none !important;
   border-color: red;

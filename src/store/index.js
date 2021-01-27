@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import slts from '../../slots.json'
+import slts from '../slots.json'
 Vue.use(Vuex)
 
 export default new Vuex.Store({

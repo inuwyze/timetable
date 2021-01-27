@@ -1,10 +1,13 @@
 <template>
-  <div>
+  
       <div id='timetable' ref="timetable">
+      
       <div v-for="(x,i) in times" :key="i" class="periods"
       :style="{left:left(x.start-7.75),right:right(x.end-7.75),top:top(x.day)}">
         {{x.start|timeConvert}} - {{x.end|timeConvert}}
       </div>
+
+      
       <div v-for="(course,slot) in courses" :key="slot">  
       <div v-show="course!=''"
       v-for="(event,j) in slots[slot]" :key="j" class="slot" @mouseover="slotSel=slot" @mouseleave="slotSel=null">
@@ -22,7 +25,7 @@
       </div>  
       </div>
     </div>
-  </div>
+  
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div >
 
     <!-- <div class=" ">
     {{sltss}}
@@ -10,34 +10,38 @@
       [{{i.day|abbv}}{{i.start|timeConvert}}{{i.end|timeConvert}}]
       </div>
     </div> -->
-    <modal v-model="show">
-      slot*,course name,faculty**
-    <textarea :class="validate"
-    name="" id="" cols="30" rows="10" v-model="textarea"></textarea>
-    
-    *case sensitive
-    **optional
+    <modal v-model="show" >
+        slot*,course name,faculty**
+        <!-- {{log}} -->
+        <!-- {{textarea}} -->
+        <textarea :class="validate"
+        name="" id="" cols="30" rows="10" v-model="textarea" @input="wtch($event.target.value)"></textarea>
+        
+        *case sensitive
+        **optional
     </modal>
     <button 
     class="addCourses"
     @click="show=true">show</button>
-    <div v-html="textarea"></div>
-    {{myCourses}}
+    
+    
     <!-- {{Object.keys(sltss)}} -->
 </div>
 </template>
 
 <script>
-import slts from '../../slots.json'
+
+// import slts from '../../slots.json'
 import {mapState} from 'vuex'
 
 export default {
   data () {
     return {
       show:false,
-      sltss:slts,
+      sltss:this.$store.state.slots,
       validate:'',
-      textarea:''
+      textarea:'',
+      log:''
     }
   },
   computed: {
@@ -45,19 +49,9 @@ export default {
   },
   watch: {
     textarea(v){
-      let c=v.split('\n').filter(x=>x!='')
-      let s=[]
-      let vd=c.every(x=>{s.push(x.split('-')[0]);return x.split('-').length>1  && x.split('-').every(y=>y) && Object.keys(this.sltss).includes(x.split('-')[0]) ;})
-      console.log(s)
-      console.log(vd)
-      let Sltdup=new Set(s).size == s.length
-       
+      // alert('ola',v)
+      console.log(v)
       
-      this.validate=vd && Sltdup ?'ok':'error'
-      if(vd){
-        let that=this;
-      c.forEach(function(x){that.inputHandler(x.split('-')[0],x.split('-')[1],x.split('-')[2]?x.split('-')[2]:'')})
-      }
     }
   },
   filters: {
@@ -68,6 +62,29 @@ export default {
   },
   
   methods: {
+    wtch(v){
+      // alert(v)
+      let c=v.split('\n').filter(x=>x!='')
+      this.log=c
+      let s=[]
+      let vd=c.every(x=>{s.push(x.split(',')[0]);return x.split(',').length>1  && x.split(',').every(y=>y) && Object.keys(this.sltss).includes(x.split(',')[0]) ;})
+      this.log+=s
+      this.log+=vd
+      console.log(s)
+      console.log(vd)
+      let Sltdup=new Set(s).size == s.length
+       
+      let that=this;
+      this.validate=vd && Sltdup ?'ok':'error'
+      if(vd){
+        
+      c.forEach(function(x){that.inputHandler(x.split(',')[0],x.split(',')[1],x.split(',')[2]?x.split(',')[2]:'')})
+      }else{
+        c.forEach(function(x){that.inputHandler(x.split(',')[0],'','')})
+        // this.$store.state.myCourses.length=0
+      }
+     
+    },
     inputHandler(s,n,f){
       
       console.log(s,f,n)
@@ -80,7 +97,10 @@ export default {
       this.$store.state.myCourses[s]['name']=n
       this.$store.state.myCourses[s]['faculty']=f
       if(this.$store.state.myCourses[s].name=='' && this.$store.state.myCourses[s].faculty=='')
+      {
+        
         delete this.$store.state.myCourses[s];
+      }
     }
   }
 }
@@ -88,6 +108,7 @@ export default {
 
 <style>
 .addCourses{
+  height: 30px;
   position: fixed;
   bottom: 10px;
   right: 10px;

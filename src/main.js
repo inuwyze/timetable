@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import modal from './components/modal.vue'
+import './registerServiceWorker'
 
 Vue.component('modal',modal)
 
