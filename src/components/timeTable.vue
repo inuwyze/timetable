@@ -6,15 +6,15 @@
       :style="{left:left(x.start-7.75),right:right(x.end-7.75),top:top(x.day)}">
         {{x.start|timeConvert}} - {{x.end|timeConvert}}
       </div>
-
-      
       <div v-for="(course,slot) in courses" :key="slot">  
       <div v-show="course!=''"
+
       v-for="(event,j) in slots[slot]" :key="j" class="slot" @mouseover="slotSel=slot" @mouseleave="slotSel=null">
       <div class="event"
       @click="openCard(slot)"
       :class="{slotHover:slotSel==slot}" 
-      :style="{left:left(event.start-7.75),right:right(event.end-7.75),top:top(event.day)}">
+      :style="{left:left(event.start-7.75),right:right(event.end-7.75),top:top(event.day)}"
+      style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
         <div>
           {{course.name}}
         </div>
@@ -82,7 +82,7 @@ export default {
   height: 70vh;
   width: 91vw;
   position: relative;
-  background: #557174;
+  background: var(--background);
    /* transform: rotate(-90deg); */
 }
 </style>

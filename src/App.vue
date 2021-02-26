@@ -35,6 +35,21 @@ export default {
 
 <style>
 
+:root {
+  --background: #ffe6e6;
+  --periods:#ffabe1;
+  --period_border:#ec7ec6;
+  --period_text:#610541;
+  --slot_background:#a685e2;
+  --slot_hover:#6155a6;
+  --background: #a685e2;
+  --periods_background:#6155a6;
+  --period_border:#7d71be;
+  --period_text:#a094e6;
+  --slot_background:#ffabe1;
+  --slot_hover:#ff8bd6;
+}
+
 @media (orientation: portrait) {
   body{
     margin: 0;
@@ -49,10 +64,11 @@ export default {
   height: 100vw;
   width: 100vh;
   position: relative;
-  background: #557174;
+  background: var(--background);
    transform: rotate(-90deg);
    
 }
+
 .periods{
   height:12vw !important;
 }
@@ -97,7 +113,7 @@ export default {
   position: absolute;
   height:10vh;
   border: 1px solid black;
-  background: #9fae8371;
+  background: var(--slot_background);
   
   transform: scale(0.90);
   transition: all .3s ease-in-out;
@@ -105,11 +121,12 @@ export default {
 .periods{
   position: absolute;
   height:9vh;
-  border: 1px solid #aebe8e;
-  background: #738059;
+  border: 1px solid var(--period_border);
+  background: var(--periods_background);
+  color: var(--period_text);
 }
 .slotHover{
-  background:#c7cfb7;
+  background:var(--slot_hover);
   /* color:#c7cfb7; */
   z-index: 2;
   transform: scale(0.98);

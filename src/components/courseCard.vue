@@ -1,5 +1,5 @@
 <template>
-       <modal v-if='showCard'  v-model="show" :rotate='true'>
+       <modal v-if='showCard'  v-model="show" :rotate='false'>
             <div class="courseCard">
             <h2 style="margin:0">{{myCourses[selCourse].name}}</h2>
             <div style="margin:0">{{myCourses[selCourse].faculty}}</div>
