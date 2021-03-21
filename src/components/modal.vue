@@ -54,13 +54,24 @@ export default {
 }
 .modal-container{
     background: white;
-    padding:25px;
+    /* scroll-padding:20px; */
     /* min-height: 100px; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* overflow: auto; */
+    
+    /* overflow-y:invisible; */
+    border-radius:10px ;
 }
+/* .modal-container:after {
+  content: "";
+  display: block;
+  height: 50px;
+  width: 100%;
+} */
 .rotate{
     transform: rotate(-90deg);
 }
+
 </style>

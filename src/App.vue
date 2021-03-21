@@ -5,6 +5,8 @@
     
     <slotInput />
     
+    <courseInput />
+
     <courseCard />
     <!-- <searchSelect /> -->
     
@@ -14,7 +16,9 @@
 </template>
 
 <script>
+// import {generator} from './course_generator/generator'
 import slotInput from './components/slotInput'
+import courseInput from './components/course_input'   
 import timeTable from './components/timeTable'
 import courseCard from './components/courseCard'
 // import searchSelect from './components/searchSelect'
@@ -22,13 +26,17 @@ import courseCard from './components/courseCard'
 
 export default {
   name: 'App',
-  components: { slotInput,timeTable,courseCard }
+  components: { slotInput,courseInput,timeTable,courseCard }
   ,
   data () {
     return {
     
     }
   },
+  created(){
+    
+ 
+  }
 
 }
 </script>

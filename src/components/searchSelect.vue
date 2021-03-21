@@ -1,23 +1,28 @@
 <template>
-  <div  >
+  <div  style="position:relative">
       <input type="text" 
         @focus="showOptions=true"
         @blur="showOptions=false"
         @keydown="keyEvents($event)"
         v-model="searchFilter"
+        style="width:300px"
         placeholder="slot"
         >
-        <div v-show="showOptions" @click="chk('sss')" class="drop-down">
+        <div style="position:absolute;left:50%;">
+        <div v-show="filteredOptions.length && showOptions" @click="chk('sss')" class="drop-down" ref="dropdown">
             <div v-for="(opt,i) in filteredOptions" :key="i" :class="{focus:i==eArr}" @mousedown="searchFilter=opt">{{opt}}</div>
+        </div>
         </div>
         <!-- {{searchFilter}} -->
         
-        {{eArr}}
+        <!-- {{filteredOptions}} -->
+        <!-- {{eArr}} -->
   </div>
 </template>
 
 <script>
 export default {
+    props:['items'],
     data () {
         return {
             searchFilter:'',
@@ -45,18 +50,30 @@ export default {
             
             
             if (e.key === "Enter" && this.filteredOptions[0])
-                this.searchFilter=this.filteredOptions[this.eArr]
+                {
+                    this.$emit('addCourse',this.filteredOptions[this.eArr])
+                    this.searchFilter=''
+                }
             
             if( e.key==='ArrowDown')
+            {
+                
                 this.eArr=(this.eArr+1)%this.filteredOptions.length
+                
+            }
             if( e.key==='ArrowUp')
                 {
                     if(this.eArr==0)
+                    {
                     this.eArr=this.filteredOptions.length
+                    
+                    }
+                    
                     this.eArr=(this.eArr-1)%this.filteredOptions.length
                 }
                 
-                
+                this.$refs.dropdown.scrollTop=19*(this.eArr)
+            
             
         },
         
@@ -65,12 +82,12 @@ export default {
         computed: {
             filteredOptions(){
             
-            if(!this.searchFilter.length)return this.options
+            if(!this.searchFilter.length)return this.items
             
-            console.log('as')
+            // console.log('as')
             let re=new RegExp(this.searchFilter, 'gi')
             let result=[]
-            for (const option of this.options) {
+            for (const option of this.items) {
                 if (option.match(re))
                     result.push(option)
             }
@@ -89,11 +106,17 @@ export default {
 
 <style>
 .drop-down{
-    box-shadow: 1px 1px 1px rgb(197, 196, 196);
+    box-shadow: 0px 3px 3px 1px rgb(197, 196, 196);
     border-bottom-left-radius :7px ;
     border-bottom-right-radius :7px ;
-    height: 92px;
-    overflow-y: scroll;;
+    height: 222px;
+    width: 300px;
+    
+    left: -50%;
+    background: #ffff;
+    overflow-y: scroll;
+    
+    position: relative;
 }
 
 .drop-down div:last-child{
@@ -108,21 +131,26 @@ export default {
     
 }
 ::-webkit-scrollbar {
+    margin-left:10px ;
   width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  /* background: #f1f1f1; */
+  
+  
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888; 
+  border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+
 }
 </style>
