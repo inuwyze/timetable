@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/timetable/precache-manifest.619ea8030a44f20587e826e2b8ebe29d.js"
+  "/timetable/precache-manifest.94aee15c73fe9a7a8f1e15a3a98f5758.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "timetable"});
