@@ -111,7 +111,7 @@ function rnd_pick(minL){
         console.log(rc)
             if(courses[rc].length==minL){
                 course=rc
-                slt=courses[rc][Math.floor(Math.random(courses[rc].length))]
+                slt=courses[rc][Math.floor(Math.random()*courses[rc].length)]
                 break
             }
     }
