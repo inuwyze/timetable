@@ -8,7 +8,6 @@
       </div>
       <div v-for="(course,slot) in courses" :key="slot">  
       <div v-show="course!=''"
-
       v-for="(event,j) in slots[slot]" :key="j" class="slot" @mouseover="slotSel=slot" @mouseleave="slotSel=null">
       <div class="event"
       @click="openCard(slot)"
@@ -16,7 +15,7 @@
       :style="{left:left(event.start-7.75),right:right(event.end-7.75),top:top(event.day)}"
       style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
         <div>
-          {{course.name}}
+          {{course.name|abv}}
         </div>
         <div v-if="slotSel==slot">
           {{event.start|timeConvert}}-{{event.end|timeConvert}}
@@ -66,6 +65,11 @@ export default {
             let days=['label','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
             return days.indexOf(x)/7*100+'%';
             },
+        },
+        filters: {
+          abv(s){
+            return s.match(/[A-Z]/g).join('');
+          }
         }
 
 }

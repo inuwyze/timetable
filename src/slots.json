@@ -343,6 +343,13 @@
             "end": 15.75
         }
     ],
+    "L13": [
+        {
+            "day": "Friday",
+            "start": 13.75,
+            "end": 15.75
+        }
+    ],
     "L14": [
         {
             "day": "Friday",
@@ -355,6 +362,40 @@
             "day": "Tuesday",
             "start":13.75,
             "end": 15.75
+        }
+    ],
+    "I": [
+        {
+            "day": "Thursday",
+            "start":15.75,
+            "end": 16.75
+        },
+        {
+            "day": "Friday",
+            "start":15.75,
+            "end": 16.75
+        },
+        {
+            "day": "Saturday",
+            "start":15.75,
+            "end": 16.75
+        }
+    ],
+    "A": [
+        {
+            "day": "Monday",
+            "start":15.75,
+            "end": 16.75
+        },
+        {
+            "day": "Tuesday",
+            "start":15.75,
+            "end": 16.75
+        },
+        {
+            "day": "Wednesday",
+            "start":15.75,
+            "end": 16.75
         }
     ]
 }

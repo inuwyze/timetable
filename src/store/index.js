@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import slts from '../slots.json'
+import fd_slts from '../all_foundation_slots_app.json'
 Vue.use(Vuex)
 import {generator} from '../course_generator/generator'
+// import { delete } from 'vue/types/umd'
+
 export default new Vuex.Store({
+  
   state: {
-    slots:slts,
+    slots:{...slts,...fd_slts},
     myCourses:{},
     selCourse:'',
     showCard:false,
@@ -17,6 +21,11 @@ export default new Vuex.Store({
     closeCard(state){
       state.showCard=false
     },
+    setMyCourseEmpty(state){
+      // Object.assign(state.myCourses,{})
+      // Vue.set(state,'myCourses',getDefaultState.myCourses)
+      Object.keys(state.myCourses).forEach(key=>{delete state.myCourses[key]})
+    }
     
   },
   actions: {
@@ -25,23 +34,34 @@ export default new Vuex.Store({
       state.selCourse=course;
 
     },
-    generate({state},myCourse){
-      alert(myCourse.keys())
+    generate({state,commit},myCourse){
+      // alert(myCourse.keys())
+      commit('setMyCourseEmpty')
       let course_slots={}
       let course_int={}
       let i=0
+      console.log('myCourse')
       console.log(myCourse)
-      for(let course of myCourse){
+      // console.log(myCourse)
+      for(let course of Object.keys(myCourse)){
         course_int[i]=course
-        if(course.toLowerCase().includes('lab'))
-        course_slots[i]=['L1','L2','L3','L4','L5','L6','L7','L8','L9','L10','L11','L12','L13','L14','L15']
-        else 
-        course_slots[i]=['S1','S2','S3','S4','S5','S6','S7','S8','S9']
+        console.log(course)
+        // if(course.toLowerCase().includes('lab'))
+        course_slots[i]=myCourse[course]
+        // else 
+        // course_slots[i]=['S1','S2','S3','S4','S5','S6','S7','S8','S9']
         i++
       }
-      console.log('course_slots')
-      console.log(course_slots)
-      let cs=generator(course_slots)
+      // console.log('course_slots')
+      // console.log(course_slots)
+      let itr=0
+      let cs=null
+      while(itr<10){
+        cs=generator(course_slots)
+        if(Object.keys(cs).length>0)
+         break
+      }
+      console.log('cs')
       console.log(cs)
       for(let x in cs){
         console.log(x)

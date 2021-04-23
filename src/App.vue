@@ -6,8 +6,11 @@
     <slotInput />
     
     <courseInput />
+    
+    <!-- <slotSettings /> -->
 
     <courseCard />
+    
     <!-- <searchSelect /> -->
     
     
@@ -19,6 +22,7 @@
 // import {generator} from './course_generator/generator'
 import slotInput from './components/slotInput'
 import courseInput from './components/course_input'   
+// import slotSettings from './components/slot_settings'   
 import timeTable from './components/timeTable'
 import courseCard from './components/courseCard'
 // import searchSelect from './components/searchSelect'
@@ -54,7 +58,7 @@ export default {
   --periods_background:#6155a6;
   --period_border:#7d71be;
   --period_text:#a094e6;
-  --slot_background:#ffabe1;
+  --slot_background:#ffabe26e;
   --slot_hover:#ff8bd6;
 }
 
@@ -87,7 +91,7 @@ export default {
 /* .courseCard{
   transform: rotate(-90deg);
 } */
-/* .addCourses{
+/* .adds{
   position: fixed;
   top: 10px;
   right: 10px;
@@ -122,7 +126,8 @@ export default {
   height:10vh;
   border: 1px solid black;
   background: var(--slot_background);
-  
+  /* opacity: 0.5; */
+
   transform: scale(0.90);
   transition: all .3s ease-in-out;
 }

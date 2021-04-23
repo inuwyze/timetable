@@ -1,6 +1,6 @@
 <template>
      <div class="modal-mask" @click='closeCard' v-show="show">
-          <div class="modal-container" @click.stop :class="{'rotate':rotate}">
+          <div class="modal-container" @click.stop :class="{'rotate':rotate}" :style="{height:height,width:width,padding:padding}">
             <slot></slot>
             
           </div>
@@ -20,6 +20,18 @@ export default {
         type: Boolean,
         default: false
         },
+        height:{
+            type:String,
+            default:'500px'
+        },
+        width:{
+            type:String,
+            default:'600px'
+        },
+        padding:{
+            type:String,
+            default:'10px'
+        }
     },
    computed: {
      show(){

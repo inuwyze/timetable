@@ -1,19 +1,8 @@
 <template>
 <div >
 
-    <!-- <div class=" ">
-    {{sltss}}
-    <div v-for="(s,slt) in sltss" :key="slt" class="inp">
-      {{slt}} course:<input type="text" @input="inputHandler(slt,'name',$event.target.value.trim())">
-      teacher:<input type="text" @input="inputHandler(slt,'faculty',$event.target.value)">
-      <span v-for='(i,x) in s' :key='x'>  </span>
-      [{{i.day|abbv}}{{i.start|timeConvert}}{{i.end|timeConvert}}]
-      </div>
-    </div> -->
     <modal v-model="show" >
         slot*,course name,faculty**
-        <!-- {{log}} -->
-        <!-- {{textarea}} -->
         <textarea :class="validate"
         name="" id="" cols="30" rows="10" v-model="textarea" @input="wtch($event.target.value)"></textarea>
         
@@ -21,7 +10,7 @@
         **optional
     </modal>
     <button 
-    class="addCourses"
+    class="adds"
     @click="show=true">show</button>
     
     
@@ -107,7 +96,7 @@ export default {
 </script>
 
 <style>
-.addCourses{
+.adds{
   height: 30px;
   position: fixed;
   bottom: 10px;

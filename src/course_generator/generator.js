@@ -4,8 +4,8 @@ let assigned={}
 let ass={}
 const cls=require('./clashes.json')    
 export function generator(c){
-    console.log('sacascas')
-    console.log(c)
+    
+    
     courses=c   
     while(Object.keys(courses).length)
     {
@@ -45,7 +45,7 @@ function chk_dept(){
             minL=Math.min(courses[x].length,minL)
             if(courses[x].length==1)
             {
-                if(courses[x][0] in Object.values(single_depth))
+                if(Object.values(single_depth).includes(courses[x][0]))
 
                     return false
                 single_depth[x]=courses[x][0]
@@ -83,7 +83,7 @@ function check_courses(){
     while(bol){
     try {
         [ass,minL]=chk_dept()  
-        console.log(minL)
+        
         // console.log(ass)
     } catch (error) {
         console.log(error)

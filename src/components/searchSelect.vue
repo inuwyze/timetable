@@ -5,12 +5,12 @@
         @blur="showOptions=false"
         @keydown="keyEvents($event)"
         v-model="searchFilter"
-        style="width:300px"
+        :style="{width:width,height:height,padding:padding}"
         placeholder="slot"
         >
         <div style="position:absolute;left:50%;">
-        <div v-show="filteredOptions.length && showOptions" @click="chk('sss')" class="drop-down" ref="dropdown">
-            <div v-for="(opt,i) in filteredOptions" :key="i" :class="{focus:i==eArr}" @mousedown="searchFilter=opt">{{opt}}</div>
+        <div v-show="filteredOptions.length && showOptions" class="drop-down" :style="{width:width}" ref="dropdown">
+            <div v-for="(opt,i) in filteredOptions" :key="i" :class="{focus:i==eArr}" @mousedown="selectEvent(opt)">{{opt}}</div>
         </div>
         </div>
         <!-- {{searchFilter}} -->
@@ -22,10 +22,32 @@
 
 <script>
 export default {
-    props:['items'],
+    props:{
+        value:{
+            type:String,
+            default:'',
+        },
+        items:{
+            type:Array,
+            required:true
+        },
+        width:{
+            type:String,
+            default:'300px'
+        },
+        height:{
+            type:String,
+            default:'20px'
+        },
+        padding:{
+            type:String,
+            default:'2px'
+        }
+
+    },
     data () {
         return {
-            searchFilter:'',
+            searchFilter:this.value,
             showOptions:false,
             
             options:Object.keys(this.$store.state.slots),
@@ -33,13 +55,13 @@ export default {
             
         }
     },
-    created () {
-      console.log(Object.keys(this.$store.state.slots))
-    },
+    
 
     methods: {
-        chk(s){
-            console.log(s)
+        selectEvent(c){
+            this.searchFilter=c
+            this.$emit('input',c)
+            this.$emit('select',c)
         },
         exit(){
             this.showOptions=false;
@@ -50,8 +72,9 @@ export default {
             
             
             if (e.key === "Enter" && this.filteredOptions[0])
-                {
-                    this.$emit('addCourse',this.filteredOptions[this.eArr])
+                {   
+                    this.$emit('select',this.filteredOptions[this.eArr])
+                    this.$emit('input',this.filteredOptions[this.eArr])
                     this.searchFilter=''
                 }
             
@@ -82,7 +105,7 @@ export default {
         computed: {
             filteredOptions(){
             
-            if(!this.searchFilter.length)return this.items
+            // if(this.searchFilter.length==0)return this.items
             
             // console.log('as')
             let re=new RegExp(this.searchFilter, 'gi')
@@ -110,7 +133,7 @@ export default {
     border-bottom-left-radius :7px ;
     border-bottom-right-radius :7px ;
     height: 222px;
-    width: 300px;
+    
     
     left: -50%;
     background: #ffff;

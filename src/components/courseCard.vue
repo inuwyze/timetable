@@ -1,12 +1,12 @@
 <template>
-       <modal v-if='showCard'  v-model="show" :rotate='false'>
+       <modal v-if='showCard'  v-model="show" :rotate='false' height='250px' width='400px'>
             <div class="courseCard">
             <h2 style="margin:0">{{myCourses[selCourse].name}}</h2>
             <div style="margin:0">{{myCourses[selCourse].faculty}}</div>
             <h4 class="chead2">timings</h4>
             
             <div v-for="(x,i) in slots[selCourse]" :key="i" class="g">
-              <span>{{x.day}}</span><span>: {{x.start|timeConvert}}</span><span>-{{x.end|timeConvert}}</span>
+              <span>{{x.day}}</span><span>: {{x.start|timeConvert}}</span><span>-&ensp;&ensp;{{x.end|timeConvert}}</span>
               </div>
           </div>          
             
