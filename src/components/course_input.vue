@@ -7,6 +7,7 @@
       <div  style="display:flex;justify-content:space-around;margin-bottom:15px">
 
       <searchSelect :items='fil_courses' @select='add' width='450px'/>
+      
       <searchSelect :items='category' v-model='cat' width='200px'/>
       </div>
 
@@ -66,7 +67,7 @@ export default {
       show:false,
       
       validate:'',
-      category:['All','Program Core','Program Electives','Allied Electives','Institute Electives','Foundation'],
+      category:['Program Core','Program Electives','Allied Electives','Institute Electives','Foundation'],
       category_f:{'Program Core':['CSE'],'Program Electives':['CSE'],'Allied Electives':['ECE','EEE','BIOTECH','BIOMED'],'Institute Electives':['AUTO','CIVIL','MECH','AERO'],'Foundation':['ALL']},
       f_slots:{
         'Project Management and Finance':['F4','F5','F6','F7','F8','F9','F10','F11'],
@@ -75,7 +76,7 @@ export default {
         'Design Thinking':['F5','F6','F7','F9'],
         'Environmental Studies':['F4','F5','F6','F7'],
       },
-      cat:'',
+      cat:'Program Core',
       allCourses:[],
       textarea:'',
       log:'',

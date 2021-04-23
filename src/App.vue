@@ -3,7 +3,7 @@
 
     <timeTable/>
     
-    <slotInput />
+    <!-- <slotInput /> -->
     
     <courseInput />
     
@@ -20,7 +20,7 @@
 
 <script>
 // import {generator} from './course_generator/generator'
-import slotInput from './components/slotInput'
+// import slotInput from './components/slotInput'
 import courseInput from './components/course_input'   
 // import slotSettings from './components/slot_settings'   
 import timeTable from './components/timeTable'
@@ -30,7 +30,7 @@ import courseCard from './components/courseCard'
 
 export default {
   name: 'App',
-  components: { slotInput,courseInput,timeTable,courseCard }
+  components: { courseInput,timeTable,courseCard }
   ,
   data () {
     return {

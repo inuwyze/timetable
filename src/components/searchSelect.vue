@@ -8,6 +8,7 @@
         :style="{width:width,height:height,padding:padding}"
         placeholder="slot"
         >
+        <span @click="searchFilter=''" style="padding:7px;font-weight:900">x</span>
         <div style="position:absolute;left:50%;">
         <div v-show="filteredOptions.length && showOptions" class="drop-down" :style="{width:width}" ref="dropdown">
             <div v-for="(opt,i) in filteredOptions" :key="i" :class="{focus:i==eArr}" @mousedown="selectEvent(opt)">{{opt}}</div>
