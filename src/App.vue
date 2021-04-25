@@ -6,9 +6,11 @@
     <!-- <slotInput /> -->
     
     <courseInput />
-    
+    <button @click="savett">save timetable</button>
     <!-- <slotSettings /> -->
-
+    <div v-if="ready">
+    {{ck}}
+    </div>
     <courseCard />
     
     <!-- <searchSelect /> -->
@@ -34,12 +36,24 @@ export default {
   ,
   data () {
     return {
-    
+      ck:this.$store.state.myCourses,
+      ready:false,
     }
   },
-  created(){
+  methods:{
+    savett(){
+      this.$store.dispatch('saveTimetable')
+
+    }
+  },
+  async created(){
     
- 
+    // Object.assign(this.$store.state.myCourses,idb.getTimetable())
+    console.log('olaoalaol')
+    this.$store.dispatch('getDB')
+    console.log(this.ck)
+    this.ready=true
+
   }
 
 }

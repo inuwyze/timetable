@@ -5,7 +5,10 @@ import fd_slts from '../all_foundation_slots_app.json'
 Vue.use(Vuex)
 import {generator} from '../course_generator/generator'
 // import { delete } from 'vue/types/umd'
+import idb from '../idb/idb'
 
+console.log('idb.getTimetable()')
+console.log(idb.getTimetable())
 export default new Vuex.Store({
   
   state: {
@@ -34,6 +37,26 @@ export default new Vuex.Store({
       state.selCourse=course;
 
     },
+	async getDB({state}){
+		
+		console.log('state.myCourses')
+		let t=await idb.getTimetable()
+		t=t.result
+		for(let x in t)
+		{	
+			console.log(t[x])
+			Vue.set( state.myCourses,x,{name:t[x]['name'],'faculty':t[x].faculty})
+		}
+		console.log(state.myCourses)
+		
+		
+	},
+	saveTimetable({state}){
+		if(Object.keys(state.myCourses).length!=0)
+			idb.saveTimetable(state.myCourses)
+		else
+			alert('empty')
+	},
     generate({state,commit},myCourse){
       // alert(myCourse.keys())
       commit('setMyCourseEmpty')
